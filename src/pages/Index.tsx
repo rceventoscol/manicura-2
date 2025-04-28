@@ -1,26 +1,35 @@
+
 import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
+import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Spa } from 'lucide-react';
+
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  
   const handleLogoClick = () => {
-    setIsContactModalOpen(true);
+    heroRef.current?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
+  
   const scrollToContact = () => {
     contactSectionRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+  
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+  
   return <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
@@ -29,12 +38,12 @@ const Index = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={scrollToServices}>
+                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} cursor-pointer`} onClick={scrollToServices}>
                   Servicios
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={scrollToContact}>
+                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} cursor-pointer`} onClick={scrollToContact}>
                   Contacto
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -44,7 +53,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-manicura-pink section-padding relative overflow-hidden">
+      <section className="bg-manicura-pink section-padding relative overflow-hidden" ref={heroRef}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 flex items-center justify-center">
             <img src="/lovable-uploads/158f29eb-45c7-4321-8555-832a2a9123a6.png" alt="Nail Polish" className="w-full h-full object-cover" />
@@ -74,7 +83,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ServiceCard title="Nails" description="Manicuras, pedicuras, uñas esculpidas, gelish y diseños personalizados para que tus manos luzcan perfectas en todo momento." icon={<Scissors size={48} strokeWidth={1.5} />} />
             <ServiceCard title="Beauty" description="Tratamientos faciales, maquillaje profesional y cuidados especiales para realzar tu belleza natural con productos de alta calidad." icon={<Brush size={48} strokeWidth={1.5} />} />
-            <ServiceCard title="Spa" description="Experimenta la relajación total con nuestros tratamientos de spa, masajes y terapias que te harán sentir renovada y radiante." icon={<img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="Spa Logo" className="w-12 h-12" />} />
+            <ServiceCard title="Spa" description="Experimenta la relajación total con nuestros tratamientos de spa, masajes y terapias que te harán sentir renovada y radiante." icon={<Spa size={48} strokeWidth={1.5} />} />
           </div>
         </div>
       </section>

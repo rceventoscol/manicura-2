@@ -10,7 +10,7 @@ const Logo: React.FC<LogoProps> = ({ onClick }) => {
     <div 
       className="flex items-center cursor-pointer hover-scale" 
       onClick={onClick}
-      title="Contáctanos"
+      title="Inicio"
     >
       <img 
         src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" 
