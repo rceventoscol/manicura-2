@@ -1,49 +1,40 @@
-
 import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
-
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
-
   const handleLogoClick = () => {
     setIsContactModalOpen(true);
   };
-
   const scrollToContact = () => {
-    contactSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    contactSectionRef.current?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   const scrollToServices = () => {
-    servicesRef.current?.scrollIntoView({ behavior: 'smooth' });
+    servicesRef.current?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-white py-4 px-6 sticky top-0 z-10 shadow-sm">
+      <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
         <div className="container mx-auto flex justify-between items-center">
           <Logo onClick={handleLogoClick} />
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink 
-                  className={navigationMenuTriggerStyle()}
-                  onClick={scrollToServices}
-                >
+                <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={scrollToServices}>
                   Servicios
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink 
-                  className={navigationMenuTriggerStyle()}
-                  onClick={scrollToContact}
-                >
+                <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={scrollToContact}>
                   Contacto
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -56,11 +47,7 @@ const Index = () => {
       <section className="bg-manicura-pink section-padding relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 flex items-center justify-center">
-            <img
-              src="/lovable-uploads/158f29eb-45c7-4321-8555-832a2a9123a6.png"
-              alt="Nail Polish"
-              className="w-full h-full object-cover"
-            />
+            <img src="/lovable-uploads/158f29eb-45c7-4321-8555-832a2a9123a6.png" alt="Nail Polish" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -71,10 +58,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-white font-light mb-8 animate-fade-in">
               Nails · Beauty · Spa
             </p>
-            <button 
-              onClick={scrollToContact}
-              className="bg-white text-manicura-darkred px-8 py-3 rounded-full font-medium hover:bg-manicura-darkred hover:text-white transition-colors animate-fade-in"
-            >
+            <button onClick={scrollToContact} className="bg-white text-manicura-darkred px-8 py-3 rounded-full font-medium hover:bg-manicura-darkred hover:text-white transition-colors animate-fade-in">
               Reservar cita
             </button>
           </div>
@@ -88,25 +72,9 @@ const Index = () => {
             Nuestros Servicios
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ServiceCard 
-              title="Nails" 
-              description="Manicuras, pedicuras, uñas esculpidas, gelish y diseños personalizados para que tus manos luzcan perfectas en todo momento."
-              icon={<Scissors size={48} strokeWidth={1.5} />}
-            />
-            <ServiceCard 
-              title="Beauty" 
-              description="Tratamientos faciales, maquillaje profesional y cuidados especiales para realzar tu belleza natural con productos de alta calidad."
-              icon={<Brush size={48} strokeWidth={1.5} />}
-            />
-            <ServiceCard 
-              title="Spa" 
-              description="Experimenta la relajación total con nuestros tratamientos de spa, masajes y terapias que te harán sentir renovada y radiante."
-              icon={<img 
-                src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png"
-                alt="Spa Logo"
-                className="w-12 h-12"
-              />}
-            />
+            <ServiceCard title="Nails" description="Manicuras, pedicuras, uñas esculpidas, gelish y diseños personalizados para que tus manos luzcan perfectas en todo momento." icon={<Scissors size={48} strokeWidth={1.5} />} />
+            <ServiceCard title="Beauty" description="Tratamientos faciales, maquillaje profesional y cuidados especiales para realzar tu belleza natural con productos de alta calidad." icon={<Brush size={48} strokeWidth={1.5} />} />
+            <ServiceCard title="Spa" description="Experimenta la relajación total con nuestros tratamientos de spa, masajes y terapias que te harán sentir renovada y radiante." icon={<img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="Spa Logo" className="w-12 h-12" />} />
           </div>
         </div>
       </section>
@@ -123,27 +91,15 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
-                <img 
-                  src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png"
-                  alt="Logo Mini"
-                  className="w-5 h-5 mr-2"
-                />
+                <img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="Logo Mini" className="w-5 h-5 mr-2" />
                 <span className="text-manicura-darkred">Atención personalizada</span>
               </div>
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
-                <img 
-                  src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png"
-                  alt="Logo Mini"
-                  className="w-5 h-5 mr-2"
-                />
+                <img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="Logo Mini" className="w-5 h-5 mr-2" />
                 <span className="text-manicura-darkred">Profesionales certificados</span>
               </div>
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
-                <img 
-                  src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png"
-                  alt="Logo Mini"
-                  className="w-5 h-5 mr-2"
-                />
+                <img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="Logo Mini" className="w-5 h-5 mr-2" />
                 <span className="text-manicura-darkred">Productos premium</span>
               </div>
             </div>
@@ -186,15 +142,9 @@ const Index = () => {
               <div className="mt-8">
                 <h4 className="text-xl font-semibold text-manicura-darkred mb-4">Ubicación</h4>
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.2297869628363!2d-73.10674392394207!3d7.1017288164788925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f0ec4d23ef7%3A0xb89047eb15c141b9!2sCra.%2035%20%2352-123%2C%20Bucaramanga%2C%20Santander!5e0!3m2!1ses!2sco!4v1713926404423!5m2!1ses!2sco" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen={true} 
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.2297869628363!2d-73.10674392394207!3d7.1017288164788925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f0ec4d23ef7%3A0xb89047eb15c141b9!2sCra.%2035%20%2352-123%2C%20Bucaramanga%2C%20Santander!5e0!3m2!1ses!2sco!4v1713926404423!5m2!1ses!2sco" width="100%" height="100%" style={{
+                  border: 0
+                }} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
             </div>
@@ -208,11 +158,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <div className="flex items-center">
-                <img 
-                  src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" 
-                  alt="La Manicura Logo" 
-                  className="h-8 mr-2"
-                />
+                <img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="La Manicura Logo" className="h-8 mr-2" />
                 <span className="font-playfair text-xl">La Manicura</span>
               </div>
             </div>
@@ -224,12 +170,7 @@ const Index = () => {
       </footer>
 
       {/* Contact Modal */}
-      <ContactModal 
-        isOpen={isContactModalOpen} 
-        onClose={() => setIsContactModalOpen(false)} 
-      />
-    </div>
-  );
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
+    </div>;
 };
-
 export default Index;
