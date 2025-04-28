@@ -36,7 +36,7 @@ const Index = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink onClick={scrollToContact} className="text-white font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
+                <NavigationMenuLink onClick={scrollToContact} className="text-green font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
                   Contacto
                 </NavigationMenuLink>
               </NavigationMenuItem>
