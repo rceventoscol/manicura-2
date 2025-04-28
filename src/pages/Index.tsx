@@ -68,7 +68,7 @@ const Index = () => {
 
       <section className="bg-white section-padding" ref={servicesRef}>
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-manicura-darkred mb-12">
+          <h2 className="text-3xl font-bold text-center mb-12 md:text-[e875a0] text-manicura-pink">
             Nuestros Servicios
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
