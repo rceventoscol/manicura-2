@@ -1,29 +1,40 @@
+
 import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
+import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Flower } from 'lucide-react';
+
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
+
   const handleLogoClick = () => {
     heroRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToContact = () => {
     contactSectionRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/573168850370?text=Hola%2C%20me%20gustaría%20reservar%20una%20cita', '_blank');
+  };
+
   return <div className="min-h-screen flex flex-col">
       <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
         <div className="container mx-auto flex justify-between items-center">
@@ -31,14 +42,18 @@ const Index = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink onClick={scrollToServices} className="text-white font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
+                <Button 
+                  onClick={scrollToServices} 
+                  className="text-white bg-manicura-pink hover:bg-manicura-pink/80 rounded-full">
                   Servicios
-                </NavigationMenuLink>
+                </Button>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink onClick={scrollToContact} className="text-white font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
+              <NavigationMenuItem className="ml-2">
+                <Button 
+                  onClick={scrollToContact} 
+                  className="text-white bg-manicura-pink hover:bg-manicura-pink/80 rounded-full">
                   Contacto
-                </NavigationMenuLink>
+                </Button>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -59,9 +74,9 @@ const Index = () => {
             <p className="text-xl font-light mb-8 animate-fade-in md:text-[gray-7e875a0] text-manicura-pink">
               Nails · Beauty · Spa
             </p>
-            <button onClick={scrollToContact} className="text-white px-8 py-3 font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center">
+            <Button onClick={openWhatsApp} className="text-white bg-manicura-pink hover:bg-manicura-pink/80 rounded-full px-8 py-6">
               Reservar cita
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -91,15 +106,15 @@ const Index = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
                 <img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="Logo Mini" className="w-5 h-5 mr-2" />
-                <span className="text-manicura-darkred">Atención personalizada</span>
+                <span className="text-manicura-pink">Atención personalizada</span>
               </div>
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
                 <img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="Logo Mini" className="w-5 h-5 mr-2" />
-                <span className="text-manicura-darkred">Profesionales certificados</span>
+                <span className="text-manicura-pink">Profesionales certificados</span>
               </div>
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
                 <img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="Logo Mini" className="w-5 h-5 mr-2" />
-                <span className="text-manicura-darkred">Productos premium</span>
+                <span className="text-manicura-pink">Productos premium</span>
               </div>
             </div>
           </div>
@@ -128,10 +143,10 @@ const Index = () => {
                   <span>info@lamanicura.com</span>
                 </div>
                 <div className="flex space-x-4 mt-6">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-manicura-darkred hover:text-manicura-pink transition-colors">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-manicura-pink hover:text-manicura-pink/80 transition-colors">
                     <Instagram size={24} />
                   </a>
-                  <a href="https://m.facebook.com/@Lamanicurabga" target="_blank" rel="noopener noreferrer" className="text-manicura-darkred hover:text-manicura-pink transition-colors">
+                  <a href="https://m.facebook.com/@Lamanicurabga" target="_blank" rel="noopener noreferrer" className="text-manicura-pink hover:text-manicura-pink/80 transition-colors">
                     <Facebook size={24} />
                   </a>
                 </div>
@@ -169,4 +184,5 @@ const Index = () => {
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>;
 };
+
 export default Index;
