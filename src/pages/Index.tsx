@@ -138,7 +138,7 @@ const Index = () => {
               </div>
               
               <div className="mt-8">
-                <h4 className="text-xl font-semibold text-manicura-darkred mb-4">Ubicación</h4>
+                <h4 className="text-xl font-semibold mb-4 text-manicura-pink">Ubicación</h4>
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.2297869628363!2d-73.10674392394207!3d7.1017288164788925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f0ec4d23ef7%3A0xb89047eb15c141b9!2sCra.%2035%20%2352-123%2C%20Bucaramanga%2C%20Santander!5e0!3m2!1ses!2sco!4v1713926404423!5m2!1ses!2sco" width="100%" height="100%" style={{
                   border: 0
