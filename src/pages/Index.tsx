@@ -54,7 +54,7 @@ const Index = () => {
           </div>
         </div>
         <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center text-center">
+          <div className="flex flex-col items-center justify-center text-center px-0 mx-0 my-0 py-0">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in">
               La Manicura
             </h1>
