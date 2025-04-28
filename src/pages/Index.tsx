@@ -2,59 +2,43 @@ import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Flower } from 'lucide-react';
-
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-
   const handleLogoClick = () => {
     heroRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToContact = () => {
     contactSectionRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
-  const openWhatsApp = () => {
-    window.open('https://wa.me/573168850370?text=Hola%2C%20me%20gustaría%20agendar%20una%20cita', '_blank');
-  };
-
   return <div className="min-h-screen flex flex-col">
       <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
         <div className="container mx-auto flex justify-between items-center">
           <Logo onClick={handleLogoClick} />
           <NavigationMenu>
-            <NavigationMenuList className="flex gap-2">
+            <NavigationMenuList>
               <NavigationMenuItem>
-                <Button 
-                  onClick={scrollToServices}
-                  className="bg-manicura-pink hover:bg-manicura-darkred text-white rounded-full"
-                >
+                <NavigationMenuLink onClick={scrollToServices} className="text-white font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
                   Servicios
-                </Button>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Button 
-                  onClick={scrollToContact}
-                  className="bg-manicura-pink hover:bg-manicura-darkred text-white rounded-full"
-                >
+                <NavigationMenuLink onClick={scrollToContact} className="text-white font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
                   Contacto
-                </Button>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -75,19 +59,16 @@ const Index = () => {
             <p className="text-xl font-light mb-8 animate-fade-in md:text-[gray-7e875a0] text-manicura-pink">
               Nails · Beauty · Spa
             </p>
-            <Button 
-              onClick={openWhatsApp}
-              className="text-white px-8 py-3 font-medium hover:bg-manicura-darkred bg-manicura-pink rounded-full text-center"
-            >
+            <button onClick={scrollToContact} className="text-white px-8 py-3 font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center">
               Reservar cita
-            </Button>
+            </button>
           </div>
         </div>
       </section>
 
       <section className="bg-white section-padding" ref={servicesRef}>
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 md:text-[e875a0] text-manicura-pink">
+          <h2 className="text-3xl font-bold text-center mb-12 md:text-[e875a0] text-manicura-pink px-0 py-[114px]">
             Nuestros Servicios
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
