@@ -79,7 +79,7 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center justify-center text-center px-0 mx-0 my-0 py-0">
-            <h1 className="text-4xl font-bold mb-4 animate-fade-in text-manicura-pink\\n\\n md:text-[e774a0]">
+            <h1 className="text-4xl font-bold mb-4 animate-fade-in md:text-[e875a0] text-manicura-pink">
               La Manicura
             </h1>
             <p className="text-xl font-light mb-8 animate-fade-in md:text-[gray-7e875a0] text-manicura-pink">
