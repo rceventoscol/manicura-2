@@ -36,7 +36,7 @@ const Index = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} cursor-pointer`} onClick={scrollToContact}>
+                <NavigationMenuLink onClick={scrollToContact} className="text-white font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
                   Contacto
                 </NavigationMenuLink>
               </NavigationMenuItem>
