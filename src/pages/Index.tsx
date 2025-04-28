@@ -59,7 +59,7 @@ const Index = () => {
             <p className="text-xl font-light mb-8 animate-fade-in md:text-[gray-7e875a0] text-manicura-pink">
               Nails · Beauty · Spa
             </p>
-            <button onClick={scrollToContact} className="text-white px-8 py-3 rounded-full font-medium hover:text-manicura-darkred transition-colors animate-fade-in bg-manicura-pink">
+            <button onClick={scrollToContact} className="text-white px-8 py-3 font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center">
               Reservar cita
             </button>
           </div>
