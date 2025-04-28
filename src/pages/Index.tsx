@@ -2,43 +2,59 @@ import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Flower } from 'lucide-react';
+
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
+
   const handleLogoClick = () => {
     heroRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToContact = () => {
     contactSectionRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/573168850370?text=Hola%2C%20me%20gustaría%20agendar%20una%20cita', '_blank');
+  };
+
   return <div className="min-h-screen flex flex-col">
       <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
         <div className="container mx-auto flex justify-between items-center">
           <Logo onClick={handleLogoClick} />
           <NavigationMenu>
-            <NavigationMenuList>
+            <NavigationMenuList className="flex gap-2">
               <NavigationMenuItem>
-                <NavigationMenuLink onClick={scrollToServices} className="text-white font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
+                <Button 
+                  onClick={scrollToServices}
+                  className="bg-manicura-pink hover:bg-manicura-darkred text-white rounded-full"
+                >
                   Servicios
-                </NavigationMenuLink>
+                </Button>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink onClick={scrollToContact} className="text-white font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center py-[7px] px-[15px]">
+                <Button 
+                  onClick={scrollToContact}
+                  className="bg-manicura-pink hover:bg-manicura-darkred text-white rounded-full"
+                >
                   Contacto
-                </NavigationMenuLink>
+                </Button>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -59,9 +75,12 @@ const Index = () => {
             <p className="text-xl font-light mb-8 animate-fade-in md:text-[gray-7e875a0] text-manicura-pink">
               Nails · Beauty · Spa
             </p>
-            <button onClick={scrollToContact} className="text-white px-8 py-3 font-medium hover:text-white transition-colors animate-fade-in bg-manicura-pink rounded-full text-center">
+            <Button 
+              onClick={openWhatsApp}
+              className="text-white px-8 py-3 font-medium hover:bg-manicura-darkred bg-manicura-pink rounded-full text-center"
+            >
               Reservar cita
-            </button>
+            </Button>
           </div>
         </div>
       </section>
