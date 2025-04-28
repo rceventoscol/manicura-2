@@ -1,35 +1,29 @@
-
 import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Flower } from 'lucide-react';
-
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  
   const handleLogoClick = () => {
     heroRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToContact = () => {
     contactSectionRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   return <div className="min-h-screen flex flex-col">
       <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
         <div className="container mx-auto flex justify-between items-center">
@@ -59,13 +53,13 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center justify-center text-center px-0 mx-0 my-0 py-0">
-            <h1 className="text-4xl md:text-6xl font-bold text-manicura-darkred mb-4 animate-fade-in">
+            <h1 className="text-4xl font-bold mb-4 animate-fade-in md:text-[e875a0] text-manicura-pink">
               La Manicura
             </h1>
-            <p className="text-xl md:text-2xl text-manicura-darkred font-light mb-8 animate-fade-in">
+            <p className="text-xl font-light mb-8 animate-fade-in md:text-[gray-7e875a0] text-manicura-pink">
               Nails · Beauty · Spa
             </p>
-            <button onClick={scrollToContact} className="bg-manicura-darkred text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-manicura-darkred transition-colors animate-fade-in">
+            <button onClick={scrollToContact} className="text-white px-8 py-3 rounded-full font-medium hover:text-manicura-darkred transition-colors animate-fade-in bg-manicura-pink">
               Reservar cita
             </button>
           </div>
@@ -175,5 +169,4 @@ const Index = () => {
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>;
 };
-
 export default Index;
