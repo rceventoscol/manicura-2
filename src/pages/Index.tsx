@@ -82,7 +82,7 @@ const Index = () => {
       <section className="bg-manicura-light section-padding">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-manicura-darkred mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-manicura-pink">
               Nuestra Experiencia
             </h2>
             <p className="text-xl text-gray-700 italic mb-8">
@@ -108,7 +108,7 @@ const Index = () => {
 
       <section className="bg-white section-padding" ref={contactSectionRef}>
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-manicura-darkred mb-12">
+          <h2 className="text-3xl font-bold text-center mb-12 md:text-[e875a0] text-manicura-pink">
             Contáctanos
           </h2>
           <div>
