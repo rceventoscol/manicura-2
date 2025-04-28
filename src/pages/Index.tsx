@@ -50,7 +50,7 @@ const Index = () => {
       <section className="bg-manicura-pink section-padding relative overflow-hidden" ref={heroRef}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 flex items-center justify-center">
-            <img src="/lovable-uploads/158f29eb-45c7-4321-8555-832a2a9123a6.png" alt="Nail Polish" className="w-full h-full object-cover" />
+            <img src="/lovable-uploads/158f29eb-45c7-4321-8555-832a2a9123a6.png" alt="Nail Polish" className="w-full h-full " />
           </div>
         </div>
         <div className="container mx-auto px-6 relative z-10">
