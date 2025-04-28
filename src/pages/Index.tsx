@@ -156,7 +156,7 @@ const Index = () => {
             <div className="mb-4 md:mb-0">
               <div className="flex items-center">
                 <img src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" alt="La Manicura Logo" className="h-8 mr-2" />
-                <span className="font-playfair text-xl">La Manicura</span>
+                <span className="font-playfair text-[te5719e] text-[#e5719e]">La Manicura</span>
               </div>
             </div>
             <div className="text-sm">
