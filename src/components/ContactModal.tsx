@@ -2,10 +2,8 @@
 import React from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
-import { X } from 'lucide-react';
+import { X, MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -13,9 +11,9 @@ interface ContactModalProps {
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Mensaje enviado correctamente");
+  const handleCall = () => {
+    window.location.href = "tel:+573168850370";
+    toast.success("Llamando...");
     onClose();
   };
 
@@ -25,7 +23,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         <DialogHeader>
           <DialogTitle className="text-2xl font-playfair text-manicura-darkred">Contáctanos</DialogTitle>
           <DialogDescription className="text-gray-600">
-            Reserva una cita o envíanos un mensaje y te responderemos a la brevedad.
+            Reserva una cita o visítanos en nuestra ubicación.
           </DialogDescription>
         </DialogHeader>
         <button 
@@ -35,45 +33,38 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           <X size={18} />
         </button>
         
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-          <div className="space-y-2">
-            <label htmlFor="name" className="text-sm font-medium text-gray-700">Nombre</label>
-            <Input 
-              id="name" 
-              placeholder="Tu nombre" 
-              className="border-gray-300 focus:border-manicura-pink"
-              required
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-gray-700">Correo electrónico</label>
-            <Input 
-              id="email" 
-              type="email" 
-              placeholder="tu@email.com" 
-              className="border-gray-300 focus:border-manicura-pink"
-              required
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium text-gray-700">Mensaje</label>
-            <Textarea 
-              id="message" 
-              placeholder="¿Cómo podemos ayudarte?" 
-              className="min-h-[120px] border-gray-300 focus:border-manicura-pink"
-              required
-            />
+        <div className="space-y-6 mt-4">
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <MapPin className="text-manicura-pink mr-3" size={20} />
+              <span>Cra. 35 #52 - 123, Cabecera del llano, Bucaramanga, Santander</span>
+            </div>
+            <div className="flex items-center">
+              <Phone className="text-manicura-pink mr-3" size={20} />
+              <span>+57 (316) 885-0370</span>
+            </div>
+            <div className="flex items-center">
+              <Mail className="text-manicura-pink mr-3" size={20} />
+              <span>info@lamanicura.com</span>
+            </div>
+            <div className="flex space-x-4 mt-6">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-manicura-darkred hover:text-manicura-pink transition-colors">
+                <Instagram size={24} />
+              </a>
+              <a href="https://m.facebook.com/@Lamanicurabga" target="_blank" rel="noopener noreferrer" className="text-manicura-darkred hover:text-manicura-pink transition-colors">
+                <Facebook size={24} />
+              </a>
+            </div>
           </div>
           
           <Button 
-            type="submit" 
+            onClick={handleCall} 
             className="w-full bg-manicura-pink hover:bg-manicura-darkred text-white transition-colors"
           >
-            Enviar mensaje
+            <Phone size={18} className="mr-2" />
+            Llamar ahora
           </Button>
-        </form>
+        </div>
       </DialogContent>
     </Dialog>
   );

@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Heart } from 'lucide-react';
 
 interface LogoProps {
   onClick: () => void;
@@ -13,8 +12,11 @@ const Logo: React.FC<LogoProps> = ({ onClick }) => {
       onClick={onClick}
       title="Contáctanos"
     >
-      <Heart className="text-manicura-pink mr-2" size={24} fill="#e875a0" />
-      <span className="font-playfair font-bold text-xl text-manicura-darkred">La Manicura</span>
+      <img 
+        src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" 
+        alt="La Manicura Logo" 
+        className="h-14 mr-2"
+      />
     </div>
   );
 };

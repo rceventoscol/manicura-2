@@ -3,11 +3,13 @@ import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
-import { Heart, Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
 
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
 
   const handleLogoClick = () => {
     setIsContactModalOpen(true);
@@ -17,20 +19,48 @@ const Index = () => {
     contactSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToServices = () => {
+    servicesRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="bg-white py-4 px-6 sticky top-0 z-10 shadow-sm">
         <div className="container mx-auto flex justify-between items-center">
           <Logo onClick={handleLogoClick} />
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuLink 
+                  className={navigationMenuTriggerStyle()}
+                  onClick={scrollToServices}
+                >
+                  Servicios
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink 
+                  className={navigationMenuTriggerStyle()}
+                  onClick={scrollToContact}
+                >
+                  Contacto
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       </header>
 
       {/* Hero Section */}
       <section className="bg-manicura-pink section-padding relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 flex items-center justify-center">
-            <Heart className="w-full h-full max-w-[500px]" />
+            <img
+              src="/lovable-uploads/158f29eb-45c7-4321-8555-832a2a9123a6.png"
+              alt="Nail Polish"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -52,7 +82,7 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="bg-white section-padding">
+      <section className="bg-white section-padding" ref={servicesRef}>
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-manicura-darkred mb-12">
             Nuestros Servicios
@@ -71,7 +101,11 @@ const Index = () => {
             <ServiceCard 
               title="Spa" 
               description="Experimenta la relajación total con nuestros tratamientos de spa, masajes y terapias que te harán sentir renovada y radiante."
-              icon={<Heart size={48} strokeWidth={1.5} />}
+              icon={<img 
+                src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png"
+                alt="Spa Logo"
+                className="w-12 h-12"
+              />}
             />
           </div>
         </div>
@@ -89,15 +123,27 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
-                <Heart className="text-manicura-pink mr-2" size={20} fill="#e875a0" />
+                <img 
+                  src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png"
+                  alt="Logo Mini"
+                  className="w-5 h-5 mr-2"
+                />
                 <span className="text-manicura-darkred">Atención personalizada</span>
               </div>
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
-                <Heart className="text-manicura-pink mr-2" size={20} fill="#e875a0" />
+                <img 
+                  src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png"
+                  alt="Logo Mini"
+                  className="w-5 h-5 mr-2"
+                />
                 <span className="text-manicura-darkred">Profesionales certificados</span>
               </div>
               <div className="flex items-center bg-white px-5 py-3 rounded-full shadow-sm">
-                <Heart className="text-manicura-pink mr-2" size={20} fill="#e875a0" />
+                <img 
+                  src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png"
+                  alt="Logo Mini"
+                  className="w-5 h-5 mr-2"
+                />
                 <span className="text-manicura-darkred">Productos premium</span>
               </div>
             </div>
@@ -111,72 +157,46 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-manicura-darkred mb-12">
             Contáctanos
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-manicura-light p-8 rounded-lg">
+          <div>
+            <div className="bg-manicura-light p-8 rounded-lg max-w-2xl mx-auto">
               <h3 className="text-2xl font-semibold text-manicura-darkred mb-6">Información de contacto</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="text-manicura-pink mr-3" size={20} />
-                  <span>Av. Princesa 123, Madrid, España</span>
+                  <span>Cra. 35 #52 - 123, Cabecera del llano, Bucaramanga, Santander</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="text-manicura-pink mr-3" size={20} />
-                  <span>+34 91 234 5678</span>
+                  <span>+57 (316) 885-0370</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="text-manicura-pink mr-3" size={20} />
                   <span>info@lamanicura.com</span>
                 </div>
                 <div className="flex space-x-4 mt-6">
-                  <a href="#" className="text-manicura-darkred hover:text-manicura-pink transition-colors">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-manicura-darkred hover:text-manicura-pink transition-colors">
                     <Instagram size={24} />
                   </a>
-                  <a href="#" className="text-manicura-darkred hover:text-manicura-pink transition-colors">
+                  <a href="https://m.facebook.com/@Lamanicurabga" target="_blank" rel="noopener noreferrer" className="text-manicura-darkred hover:text-manicura-pink transition-colors">
                     <Facebook size={24} />
                   </a>
                 </div>
               </div>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-semibold text-manicura-darkred mb-6">Envíanos un mensaje</h3>
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-                  <input
-                    type="text"
-                    id="contact-name"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-manicura-pink"
-                    placeholder="Tu nombre"
-                    required
-                  />
+              
+              <div className="mt-8">
+                <h4 className="text-xl font-semibold text-manicura-darkred mb-4">Ubicación</h4>
+                <div className="aspect-video w-full rounded-lg overflow-hidden">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.2297869628363!2d-73.10674392394207!3d7.1017288164788925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f0ec4d23ef7%3A0xb89047eb15c141b9!2sCra.%2035%20%2352-123%2C%20Bucaramanga%2C%20Santander!5e0!3m2!1ses!2sco!4v1713926404423!5m2!1ses!2sco" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen={true} 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
-                <div>
-                  <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <input
-                    type="email"
-                    id="contact-email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-manicura-pink"
-                    placeholder="tu@email.com"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-                  <textarea
-                    id="contact-message"
-                    rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-manicura-pink"
-                    placeholder="¿Cómo podemos ayudarte?"
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-manicura-pink text-white py-3 rounded-md hover:bg-manicura-darkred transition-colors"
-                >
-                  Enviar mensaje
-                </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -188,7 +208,11 @@ const Index = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <div className="flex items-center">
-                <Heart className="mr-2" size={20} fill="#ffffff" />
+                <img 
+                  src="/lovable-uploads/d07f4402-7594-41f8-a693-e7c86d06d3eb.png" 
+                  alt="La Manicura Logo" 
+                  className="h-8 mr-2"
+                />
                 <span className="font-playfair text-xl">La Manicura</span>
               </div>
             </div>
