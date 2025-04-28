@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
@@ -6,52 +5,42 @@ import ServiceCard from '@/components/ServiceCard';
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Flower } from 'lucide-react';
-
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-
   const handleLogoClick = () => {
     heroRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToContact = () => {
     contactSectionRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const openWhatsApp = () => {
     window.open('https://wa.me/573168850370?text=Hola%2C%20me%20gustaría%20reservar%20una%20cita', '_blank');
   };
-
   return <div className="min-h-screen flex flex-col">
-      <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
+      <header className="px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6] my-0 py-0">
         <div className="container mx-auto flex justify-between items-center">
           <Logo onClick={handleLogoClick} />
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Button 
-                  onClick={scrollToServices} 
-                  className="text-white bg-manicura-pink hover:bg-manicura-pink/80 rounded-full">
+                <Button onClick={scrollToServices} className="text-white bg-manicura-pink hover:bg-manicura-pink/80 rounded-full">
                   Servicios
                 </Button>
               </NavigationMenuItem>
               <NavigationMenuItem className="ml-2">
-                <Button 
-                  onClick={scrollToContact} 
-                  className="text-white bg-manicura-pink hover:bg-manicura-pink/80 rounded-full">
+                <Button onClick={scrollToContact} className="text-white bg-manicura-pink hover:bg-manicura-pink/80 rounded-full">
                   Contacto
                 </Button>
               </NavigationMenuItem>
@@ -184,5 +173,4 @@ const Index = () => {
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>;
 };
-
 export default Index;
