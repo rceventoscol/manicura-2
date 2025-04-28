@@ -159,7 +159,7 @@ const Index = () => {
                 <span className="font-playfair text-[te5719e] text-[#e5719e]">La Manicura</span>
               </div>
             </div>
-            <div className="text-sm">
+            <div className="font-playfair text-[te5719e] text-[#e5719e]">
               © 2025 La Manicura. Todos los derechos reservados.
             </div>
           </div>
