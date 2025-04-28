@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Spa } from 'lucide-react';
+import { Flower } from 'lucide-react';
 
 interface ServiceCardProps {
   title: string;
