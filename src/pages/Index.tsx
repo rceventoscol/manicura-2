@@ -4,33 +4,28 @@ import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Flower } from 'lucide-react';
-
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  
   const handleLogoClick = () => {
     heroRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToContact = () => {
     contactSectionRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   return <div className="min-h-screen flex flex-col">
-      <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
+      <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-manicura-pink">
         <div className="container mx-auto flex justify-between items-center">
           <Logo onClick={handleLogoClick} />
           <NavigationMenu>
@@ -174,5 +169,4 @@ const Index = () => {
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>;
 };
-
 export default Index;
