@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
@@ -50,7 +51,7 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="bg-manicura-pink section-padding relative overflow-hidden" ref={heroRef}>
+      <section className="bg-[#fdecf6] section-padding relative overflow-hidden" ref={heroRef}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 flex items-center justify-center">
             <img src="/lovable-uploads/158f29eb-45c7-4321-8555-832a2a9123a6.png" alt="Nail Polish" className="w-full h-full " />
@@ -58,13 +59,13 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center justify-center text-center px-0 mx-0 my-0 py-0">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold text-manicura-darkred mb-4 animate-fade-in">
               La Manicura
             </h1>
-            <p className="text-xl md:text-2xl text-white font-light mb-8 animate-fade-in">
+            <p className="text-xl md:text-2xl text-manicura-darkred font-light mb-8 animate-fade-in">
               Nails · Beauty · Spa
             </p>
-            <button onClick={scrollToContact} className="bg-white text-manicura-darkred px-8 py-3 rounded-full font-medium hover:bg-manicura-darkred hover:text-white transition-colors animate-fade-in">
+            <button onClick={scrollToContact} className="bg-manicura-darkred text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-manicura-darkred transition-colors animate-fade-in">
               Reservar cita
             </button>
           </div>
