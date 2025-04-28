@@ -3,29 +3,33 @@ import Logo from '@/components/Logo';
 import ContactModal from '@/components/ContactModal';
 import ServiceCard from '@/components/ServiceCard';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Spa } from 'lucide-react';
+import { Scissors, Brush, Instagram, Facebook, MapPin, Phone, Mail, Flower } from 'lucide-react';
+
 const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
+  
   const handleLogoClick = () => {
     heroRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToContact = () => {
     contactSectionRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   return <div className="min-h-screen flex flex-col">
-      {/* Header */}
       <header className="py-4 px-6 sticky top-0 z-10 shadow-sm bg-[fdecf6] bg-[#fdecf6]">
         <div className="container mx-auto flex justify-between items-center">
           <Logo onClick={handleLogoClick} />
@@ -46,7 +50,6 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="bg-manicura-pink section-padding relative overflow-hidden" ref={heroRef}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 flex items-center justify-center">
@@ -68,7 +71,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
       <section className="bg-white section-padding" ref={servicesRef}>
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-manicura-darkred mb-12">
@@ -77,12 +79,11 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ServiceCard title="Nails" description="Manicuras, pedicuras, uñas esculpidas, gelish y diseños personalizados para que tus manos luzcan perfectas en todo momento." icon={<Scissors size={48} strokeWidth={1.5} />} />
             <ServiceCard title="Beauty" description="Tratamientos faciales, maquillaje profesional y cuidados especiales para realzar tu belleza natural con productos de alta calidad." icon={<Brush size={48} strokeWidth={1.5} />} />
-            <ServiceCard title="Spa" description="Experimenta la relajación total con nuestros tratamientos de spa, masajes y terapias que te harán sentir renovada y radiante." icon={<Spa size={48} strokeWidth={1.5} />} />
+            <ServiceCard title="Spa" description="Experimenta la relajación total con nuestros tratamientos de spa, masajes y terapias que te harán sentir renovada y radiante." icon={<Flower size={48} strokeWidth={1.5} />} />
           </div>
         </div>
       </section>
 
-      {/* Experience Section */}
       <section className="bg-manicura-light section-padding">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
@@ -110,7 +111,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
       <section className="bg-white section-padding" ref={contactSectionRef}>
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-manicura-darkred mb-12">
@@ -155,7 +155,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="text-white py-8 bg-[#fdecf6]">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -172,8 +171,8 @@ const Index = () => {
         </div>
       </footer>
 
-      {/* Contact Modal */}
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>;
 };
+
 export default Index;
